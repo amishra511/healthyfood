@@ -1,0 +1,34 @@
+<!--<input #term (keyup)="getFoodItems(term.value, $event)" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
+        type="text" />
+      <div class="dropdown">
+        <ul class="result">
+          <li *ngFor="let item of items | async" (click)="onFoodItemSelect(item)">{{item.shrt_desc}}</li>
+        </ul>
+      </div>-->
+
+<div class="container is-fluid">
+  <div class="columns">
+    <div class="column is-11">
+      <div class="field">
+        <p class="control has-icons-left">
+          <input #term (keyup)="getFoodItems(term.value, $event)" placeholder="Enter Food Item " type="text" list="mylist" class="input">
+          <span class="icon is-medium is-left">
+           <i class="fa fa-search"></i>
+          </span>
+          <datalist id="mylist">
+            <option *ngFor="let item of items | async">{{item.shrt_desc}}</option>
+          </datalist>
+        </p>
+        <div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="right">
+      <button (click)="findPets()" class="btn-secondary"> Find Pets</button>
+    </div>-->
