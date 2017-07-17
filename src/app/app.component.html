@@ -1,12 +1,46 @@
-<!--<input #term (keyup)="getFoodItems(term.value, $event)" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
-        type="text" />
-      <div class="dropdown">
-        <ul class="result">
-          <li *ngFor="let item of items | async" (click)="onFoodItemSelect(item)">{{item.shrt_desc}}</li>
-        </ul>
-      </div>-->
+<!-- ////////////////// Using <ul> ///////////// -->
+<div class="container is-fluid box">
+  
+      <div>
+        <input #term (keyup)="getFoodItems(term.value, $event)" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
+          type="text" />
+        <div class="dropdown">
+          <ul class="result">
+            <li *ngFor="let item of items | async" (click)="onFoodItemSelect(item)">{{item.desc}}</li>
+          </ul>
+        </div>
+      </div>
+      <br/>
+      <div>
+        <table class="table">
+          <thead>
+            <th>Item</th>
+            <th> Qty</th>
+            <th> Protein(gm)</th>
+            <th> Sat Fat(gm)</th>
+          </thead>
+          <tr>
+              <td>{{selectedItem.desc}}</td>
+              <td>100 gm</td>
+              <td>{{selectedItem.protein_g}}</td>
+              <td>{{selectedItem.sat_fat_g}}</td>
+          </tr>
+        </table>
+      </div>
+</div>
 
-<div class="container is-fluid">
+<!-- <section class="section">
+  <h2 class="subtitle">
+    Results
+  </h2>
+</section> -->
+
+
+<!-- Using Data list, pretty slow and unpredictable results -->
+<!--////////////////////////////////////////////////////////-->
+
+<!--//////////// Layout style 1 /////////////// -->
+<!--<div class="container is-fluid">
   <div class="columns">
     <div class="column is-11">
       <div class="field">
@@ -26,7 +60,31 @@
     <div class="column">
     </div>
   </div>
-</div>
+</div>-->
+
+<!-- //////////////////// Layout style 2 ///////////////-->
+<!--<div class="container is-fluid">
+  <div class="columns">
+    <div class="column is-11">
+      <div class="field">
+        <p class="control has-icons-left">
+          <input #term (keyup)="getFoodItems(term.value, $event)" placeholder="Enter Food Item " type="text" list="mylist" class="input">
+          <span class="icon is-medium is-left">
+           <i class="fa fa-search"></i>
+          </span>
+          <datalist id="mylist">
+            <option *ngFor="let item of items | async">{{item.desc}}</option>
+          </datalist>
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <a class="button is-outlined">Search</a>
+    </div>
+  </div>
+</div>-->
+
+
 
 
 <!--<div class="right">

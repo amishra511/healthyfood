@@ -25,9 +25,11 @@ export class AppComponent {
      }
   }
     onFoodItemSelect(item: NutrientRootObject){  
-    this.foodItem = item.shrt_desc;
+    this.foodItem = item.desc;
     this.selectedItem = item;
     this.items = null;
   }
+
+  
 
 }
