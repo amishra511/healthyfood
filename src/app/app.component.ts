@@ -23,13 +23,18 @@ export class AppComponent {
     //Do not subscribe to the observable, directly use it otherwise 'async' will give error in html
     this.items = this.healthyFoodServ.getSuggestion(term);   
      }
+  
   }
     onFoodItemSelect(item: NutrientRootObject){  
     this.foodItem = item.desc;
     this.selectedItem = item;
+    this.clearIemList();
+  }
+
+  clearIemList(){
     this.items = null;
   }
 
-  
+
 
 }

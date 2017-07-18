@@ -1,32 +1,49 @@
 <!-- ////////////////// Using <ul> ///////////// -->
 <div class="container is-fluid box">
-  
-      <div>
-        <input #term (keyup)="getFoodItems(term.value, $event)" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
-          type="text" />
-        <div class="dropdown">
-          <ul class="result">
-            <li *ngFor="let item of items | async" (click)="onFoodItemSelect(item)">{{item.desc}}</li>
-          </ul>
-        </div>
-      </div>
-      <br/>
-      <div>
-        <table class="table">
-          <thead>
-            <th>Item</th>
-            <th> Qty</th>
-            <th> Protein(gm)</th>
-            <th> Sat Fat(gm)</th>
-          </thead>
-          <tr>
-              <td>{{selectedItem.desc}}</td>
-              <td>100 gm</td>
-              <td>{{selectedItem.protein_g}}</td>
-              <td>{{selectedItem.sat_fat_g}}</td>
-          </tr>
-        </table>
-      </div>
+  <div>    
+    <input #term (keyup)="getFoodItems(term.value, $event)" (blur) = "clearIemList()" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
+      type="text" />
+    <div class="dropdown">
+      <ul class="result">
+        <li *ngFor="let item of items | async" (click)="onFoodItemSelect(item)">{{item.desc}}</li>
+      </ul>
+    </div>
+  </div>
+  <br/>
+  <div>
+    <table class="table">
+      <thead>
+        <th>Item</th>
+        <th>Qty</th>
+        <th> Protein (gm)</th>
+        <th> Sat Fat (gm)</th>
+        <th> Cholestrol (mg)</th>
+        <th> Energy (kcal)</th>
+        <th> Dietary Fiber (g)</th>
+        <th> Sodium (mg)</th>
+      </thead>
+      <tr *ngIf = "selectedItem" >
+        <td>{{selectedItem.desc}}</td>
+        <td>                     
+           <p class="control">
+            <span class="select is-small">
+              <select>
+                <option>100 gm</option>
+                <option>1 cup (227 gm)</option>
+                <option>1 tbs (14 gm)</option>
+              </select>
+            </span>
+          </p> 
+        </td>
+        <td>{{selectedItem.protein_g}}</td>
+        <td>{{selectedItem.sat_fat_g}}</td>
+        <td>{{selectedItem.cholestrl_mg}}</td>
+        <td>{{selectedItem.energy_kcal}}</td>
+        <td>{{selectedItem.fiber_dt}}</td>
+        <td>{{selectedItem.sodium_mg}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <!-- <section class="section">
