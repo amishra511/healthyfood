@@ -50,6 +50,7 @@
     <div>
     <table class="pure-table" *ngIf = "addedItems">
       <thead>
+        <th>#</th>
         <th>Item</th>
         <th>Qty</th>
         <th> Protein (gm)</th>
@@ -59,7 +60,8 @@
         <th> Dietary Fiber (g)</th>
         <th> Sodium (mg)</th>
       </thead>
-      <tr *ngFor ="let addItem of addedItems" >
+      <tr *ngFor ="let addItem of addedItems; let i=index" >
+        <td>{{i+1}}</td>
         <td>{{addItem.desc}}</td>
         <td>                     
            <!-- <p class="control">
