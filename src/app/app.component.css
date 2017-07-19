@@ -44,5 +44,9 @@ font:0.8em Verdana;
   color:#fff;
 }
 
+.plusHover{
+  cursor: pointer;
+}
+
 /* End code for autosubmit using input and <ul */
 

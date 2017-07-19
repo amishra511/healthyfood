@@ -1,7 +1,7 @@
 <!-- ////////////////// Using <ul> ///////////// -->
 <div class="container is-fluid box">
   <div>    
-    <input #term (keyup)="getFoodItems(term.value, $event)" (blur) = "clearIemList()" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
+    <input #term (keyup)="getFoodItems(term.value, $event)" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
       type="text" />
     <div class="dropdown">
       <ul class="result">
@@ -13,6 +13,7 @@
   <div>
     <table class="table">
       <thead>
+        <th>Add</th>
         <th>Item</th>
         <th>Qty</th>
         <th> Protein (gm)</th>
@@ -23,17 +24,18 @@
         <th> Sodium (mg)</th>
       </thead>
       <tr *ngIf = "selectedItem" >
+        <td><i class="fa fa-plus plusHover" aria-hidden="true"  (click)=onAdd()></i></td>
         <td>{{selectedItem.desc}}</td>
         <td>                     
-           <p class="control">
-            <span class="select is-small">
+           <!-- <p class="control">
+            <span class="select is-small"> -->
               <select>
                 <option>100 gm</option>
                 <option>1 cup (227 gm)</option>
                 <option>1 tbs (14 gm)</option>
               </select>
-            </span>
-          </p> 
+            <!-- </span>
+          </p>  -->
         </td>
         <td>{{selectedItem.protein_g}}</td>
         <td>{{selectedItem.sat_fat_g}}</td>
@@ -44,6 +46,42 @@
       </tr>
     </table>
   </div>
+  <br/>
+    <div>
+    <table class="pure-table" *ngIf = "addedItems">
+      <thead>
+        <th>Item</th>
+        <th>Qty</th>
+        <th> Protein (gm)</th>
+        <th> Sat Fat (gm)</th>
+        <th> Cholestrol (mg)</th>
+        <th> Energy (kcal)</th>
+        <th> Dietary Fiber (g)</th>
+        <th> Sodium (mg)</th>
+      </thead>
+      <tr *ngFor ="let addItem of addedItems" >
+        <td>{{addItem.desc}}</td>
+        <td>                     
+           <!-- <p class="control">
+            <span class="select is-small"> -->
+              <select>
+                <option>100 gm</option>
+                <option>1 cup (227 gm)</option>
+                <option>1 tbs (14 gm)</option>
+              </select>
+            <!-- </span>
+          </p>  -->
+        </td>
+        <td>{{addItem.protein_g}}</td>
+        <td>{{addItem.sat_fat_g}}</td>
+        <td>{{addItem.cholestrl_mg}}</td>
+        <td>{{addItem.energy_kcal}}</td>
+        <td>{{addItem.fiber_dt}}</td>
+        <td>{{addItem.sodium_mg}}</td>
+      </tr>
+    </table>
+  </div>
+  
 </div>
 
 <!-- <section class="section">

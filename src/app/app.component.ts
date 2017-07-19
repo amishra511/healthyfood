@@ -7,13 +7,14 @@ import { Headers, Http } from '@angular/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', './bulma.css']
+  styleUrls: ['./app.component.css', './bulma.css', './pure.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Nutrition Facts about your food';
   items:Observable<NutrientRootObject[]>;
   foodItem:string;
   selectedItem:NutrientRootObject;
+  addedItems: NutrientRootObject[] =[];
 
   constructor(private healthyFoodServ: HealthyFoodService, private http:Http){}
 
@@ -28,11 +29,20 @@ export class AppComponent {
     onFoodItemSelect(item: NutrientRootObject){  
     this.foodItem = item.desc;
     this.selectedItem = item;
-    this.clearIemList();
+    // this.clearIemList();
+    this.items = null;
   }
 
   clearIemList(){
     this.items = null;
+  }
+
+  onQtyChange(msr: number){
+
+  }
+
+  onAdd(){
+    this.addedItems.push(this.selectedItem);
   }
 
 
