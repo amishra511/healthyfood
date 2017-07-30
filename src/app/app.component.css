@@ -9,7 +9,7 @@
 
 /* old styles */
 body {
-font:0.8em Verdana;
+font:0.8em Arial;
     }
 
 .autosuggest, .dropdown, .result {
@@ -22,6 +22,7 @@ font:0.8em Verdana;
 .autosuggest {
   padding:4px;
   border:.5px solid #000;
+  height:25px;
 
 }
 
@@ -49,4 +50,29 @@ font:0.8em Verdana;
 }
 
 /* End code for autosubmit using input and <ul */
+
+.search {
+  position: relative;
+  /* color: #aaa; */
+  /* font-size: 16px; */
+}
+
+/* .search input {
+  width: 250px;
+  height: 32px;
+
+   background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset; 
+} */
+
+ .search input { text-indent: 32px;
+width: 250px;
+  height: 32px;} 
+.search .fa-user { 
+  position: absolute;
+   top: 10px;
+  left: 10px; 
+}
 

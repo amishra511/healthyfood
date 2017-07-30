@@ -13,4 +13,6 @@ import {JsonObject, JsonProperty} from "json2typescript";
        public sodium_mg: number = undefined;
        public wt_g: number = undefined;
        public wt_g_desc: string = undefined;       
+        
+       //con
     }

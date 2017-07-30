@@ -19,6 +19,7 @@ export class HealthyFoodService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
  
   private nutrientsUrl = 'http://nutrients-lifeone.rhcloud.com/rest/api/getSuggestions';  // URL to web api
+  // private nutrientsUrl = 'http://localhost:8080/nutrients/rest/api/getSuggestions';  // URL to web api
   private formatParam = 'format=json';
   private methodRandomPet = 'getpet';
   private nutrient:NutrientRootObject[];

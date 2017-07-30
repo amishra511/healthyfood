@@ -1,6 +1,6 @@
 <!-- ////////////////// Using <ul> ///////////// -->
 <div class="container is-fluid box">
-  <div>    
+  <div>
     <input #term (keyup)="getFoodItems(term.value, $event)" class="autosuggest" [(ngModel)]="foodItem" placeholder="Enter Food Item "
       type="text" />
     <div class="dropdown">
@@ -9,6 +9,10 @@
       </ul>
     </div>
   </div>
+  <!-- <div class="search">
+    <span class="fa fa-user"></span>
+    <input placeholder="Search term">
+  </div> -->
   <br/>
   <div>
     <table class="table">
@@ -23,18 +27,18 @@
         <th> Dietary Fiber (g)</th>
         <th> Sodium (mg)</th>
       </thead>
-      <tr *ngIf = "selectedItem" >
-        <td><i class="fa fa-plus plusHover" aria-hidden="true"  (click)=onAdd()></i></td>
+      <tr *ngIf="selectedItem">
+        <td><i class="fa fa-plus plusHover" aria-hidden="true" (click)=onAdd()></i></td>
         <td>{{selectedItem.desc}}</td>
-        <td>                     
-           <!-- <p class="control">
+        <td>
+          <!-- <p class="control">
             <span class="select is-small"> -->
-              <select>
+          <select>
                 <option>100 gm</option>
                 <option>1 cup (227 gm)</option>
                 <option>1 tbs (14 gm)</option>
               </select>
-            <!-- </span>
+          <!-- </span>
           </p>  -->
         </td>
         <td>{{selectedItem.protein_g}}</td>
@@ -43,12 +47,12 @@
         <td>{{selectedItem.energy_kcal}}</td>
         <td>{{selectedItem.fiber_dt}}</td>
         <td>{{selectedItem.sodium_mg}}</td>
-      </tr>
+      </tr>      
     </table>
   </div>
   <br/>
-    <div>
-    <table class="pure-table" *ngIf = "addedItems">
+  <div>
+    <table class="pure-table" *ngIf="addedItems">
       <thead>
         <th>#</th>
         <th>Item</th>
@@ -60,18 +64,18 @@
         <th> Dietary Fiber (g)</th>
         <th> Sodium (mg)</th>
       </thead>
-      <tr *ngFor ="let addItem of addedItems; let i=index" >
+      <tr *ngFor="let addItem of addedItems; let i=index">
         <td>{{i+1}}</td>
         <td>{{addItem.desc}}</td>
-        <td>                     
-           <!-- <p class="control">
+        <td>
+          <!-- <p class="control">
             <span class="select is-small"> -->
-              <select>
+          <select>
                 <option>100 gm</option>
                 <option>1 cup (227 gm)</option>
                 <option>1 tbs (14 gm)</option>
               </select>
-            <!-- </span>
+          <!-- </span>
           </p>  -->
         </td>
         <td>{{addItem.protein_g}}</td>
@@ -81,9 +85,20 @@
         <td>{{addItem.fiber_dt}}</td>
         <td>{{addItem.sodium_mg}}</td>
       </tr>
+      <tfoot style="background-color:darksalmon">
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td>{{sumOfItems.protein_g.toFixed(2)}}</td>
+        <td>{{sumOfItems.sat_fat_g.toFixed(3)}}</td>
+        <td>{{sumOfItems.cholestrl_mg}}</td>
+        <td>{{sumOfItems.energy_kcal}}</td>
+        <td>{{sumOfItems.fiber_dt}}</td>
+        <td>{{sumOfItems.sodium_mg}}</td> 
+      </tfoot>
     </table>
   </div>
-  
+
 </div>
 
 <!-- <section class="section">
