@@ -25,7 +25,7 @@
         <th> Cholestrol (mg)</th>
         <th> Energy (kcal)</th>
         <th> Dietary Fiber (g)</th>
-        <th> Sodium (mg)</th>
+        <th> Sodium (mg)</th>        
       </thead>
       <tr *ngIf="selectedItem">
         <td><i class="fa fa-plus plusHover" aria-hidden="true" (click)=onAdd()></i></td>
@@ -63,8 +63,9 @@
         <th> Energy (kcal)</th>
         <th> Dietary Fiber (g)</th>
         <th> Sodium (mg)</th>
+        <th>Remove</th>
       </thead>
-      <tr *ngFor="let addItem of addedItems; let i=index">
+      <tr *ngFor="let addItem of addedItems; let i=index" >
         <td>{{i+1}}</td>
         <td>{{addItem.desc}}</td>
         <td>
@@ -83,7 +84,10 @@
         <td>{{addItem.cholestrl_mg}}</td>
         <td>{{addItem.energy_kcal}}</td>
         <td>{{addItem.fiber_dt}}</td>
-        <td>{{addItem.sodium_mg}}</td>
+        <td>{{addItem.sodium_mg}}</td>        
+        <td>
+        <i class="fa fa-minus-square iconMinus" aria-hidden="true" (click)=onRemove(addItem.id)></i>
+        </td>
       </tr>
       <tfoot style="background-color:darksalmon">
         <td>Total</td>
@@ -95,6 +99,7 @@
         <td>{{sumOfItems.energy_kcal}}</td>
         <td>{{sumOfItems.fiber_dt}}</td>
         <td>{{sumOfItems.sodium_mg}}</td> 
+        <td></td>
       </tfoot>
     </table>
   </div>

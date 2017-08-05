@@ -48,6 +48,10 @@ font:0.8em Arial;
 .plusHover{
   cursor: pointer;
 }
+.iconMinus{
+  cursor: pointer;
+  color:crimson;
+}
 
 /* End code for autosubmit using input and <ul */
 

@@ -15,7 +15,6 @@ export class AppComponent {
   foodItem: string;
   selectedItem: NutrientRootObject;
   addedItems: NutrientRootObject[] = [];
-
   sumOfItems: NutrientRootObject ;
 
   constructor(private healthyFoodServ: HealthyFoodService, private http: Http) {
@@ -61,6 +60,30 @@ export class AppComponent {
     this.selectedItem = null;
     this.foodItem = null;
   }
+
+  onRemove(id:number){
+    console.log("Deleted Item Id:"+ id);
+   //this.addedItems =  this.addedItems.splice(0,1,;
+    this.removeArrayItem(this.findItemInItemsArray(id));
+    this.sumItemValues();
+    // this.addedItems = this.addedItems.splice(0,1,this.findItemInItemsArray(id));   
+  }
+
+  findItemInItemsArray(id:number){
+    for(let item of this.addedItems){
+      if(item.id == id){
+        return item;
+      }
+    }
+  }
+
+  removeArrayItem(deleteItem:NutrientRootObject){
+    let index = this.addedItems.indexOf(deleteItem);
+    if(index>-1){
+      this.addedItems.splice(index, 1);
+    }
+  }
+
 
   sumItemValues() {
 
